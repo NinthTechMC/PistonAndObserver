@@ -7,3 +7,5 @@
 /libs
 *.mp4
 /eclipse
+/.classpath
+/.project

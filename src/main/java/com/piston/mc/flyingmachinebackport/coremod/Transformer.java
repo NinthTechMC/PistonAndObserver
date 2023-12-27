@@ -68,7 +68,7 @@ public class Transformer implements IClassTransformer {
 		
 		Map<String, MethodHook> hookMap = new HashMap<String, MethodHook>();
 		// @formatter:off
-		String replacementClass = "com/piston/mc/flyingmachinebackport/piston/BlockPistonHooks";
+		String replacementClass = CoremodInfo.GroupSlashed + "/piston/BlockPistonHooks";
 		String hookConfigMethod = "hooksEnableSlimeBlockPiston";
 		
 		MethodHook onBlockEventReceivedHook = new MethodHook.Builder()

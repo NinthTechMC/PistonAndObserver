@@ -5,7 +5,7 @@
         "description": "Backport of observers and slime/honey blocks to 1.7.10",
         "version": "${version}",
         "mcversion": "${mcversion}",
-        "url": "",
+        "url": "https://github.com/Pistonight/FlyingMachineBackport",
         "updateUrl": "",
         "authorList": [
             "Pistonight"

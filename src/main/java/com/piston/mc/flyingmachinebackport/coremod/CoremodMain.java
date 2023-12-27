@@ -12,14 +12,14 @@ import cpw.mods.fml.relauncher.IFMLLoadingPlugin;
  *
  * The coremod is for hooking pistons
  */
-@IFMLLoadingPlugin.TransformerExclusions({ "com.piston.mc.flyingmachinebackport.coremod" })
+@IFMLLoadingPlugin.TransformerExclusions({ CoremodInfo.CoremodGroup })
 @IFMLLoadingPlugin.MCVersion("1.7.10")
 public class CoremodMain implements IFMLLoadingPlugin {
 	public static Logger log = LogManager.getLogger("Flying Machine Backport Core");
 
 	@Override
 	public String[] getASMTransformerClass() {
-		return new String[] { "com.piston.mc.flyingmachinebackport.coremod.Transformer" };
+		return new String[] { CoremodInfo.CoremodGroup + ".Transformer" };
 	}
 
 	@Override

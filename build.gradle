@@ -22,22 +22,23 @@ apply plugin: 'forge'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
-version = "1.0.0"
-group = "com.piston.mc.flyingmachinebackport"
-archivesBaseName = "flying-machine-backport"
+version = '1.1.0'
+group = 'com.piston.mc.flyingmachinebackport'
+archivesBaseName = 'flying-machine-backport'
 
 minecraft {
     version = "1.7.10-10.13.4.1614-1.7.10"
     runDir = "run"
 }
 
+// coremod
 jar {
-	manifest {
-		attributes 'FMLCorePlugin': 'com.piston.mc.flyingmachinebackport.coremod.CoremodMain'
-		attributes 'FMLCorePluginContainsFMLMod': 'true'
-	}
+    manifest {
+        attributes 'FMLCorePlugin': 'com.piston.mc.flyingmachinebackport.coremod.CoremodMain'
+        attributes 'FMLCorePluginContainsFMLMod': 'true'
+    }
 }
-
+// coremod
 dependencies {
     // you may put jars on which you depend on in ./libs
     // or you may define them like so..

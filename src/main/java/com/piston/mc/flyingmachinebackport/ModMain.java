@@ -16,8 +16,8 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 public class ModMain
 {
 	@SidedProxy(
-		clientSide = "com.piston.mc.flyingmachinebackport.init.InitClient",
-		serverSide = "com.piston.mc.flyingmachinebackport.init.InitServer"
+		clientSide = ModInfo.Group + ".init.InitClient",
+		serverSide = ModInfo.Group + ".init.InitCommon"
 	)
 	public static Init initProxy;
 
