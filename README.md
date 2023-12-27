@@ -2,6 +2,8 @@
 
 This mod backports slime/honey blocks and observers to 1.7.10 so I can make flying machines
 
+You can see a demo on [youtube](https://www.youtube.com/watch?v=nKD4PSGlFjU)
+
 ## Features
 - Observer: doesn't replicate the logic perfectly. The following works:
   - Movable by pistons
