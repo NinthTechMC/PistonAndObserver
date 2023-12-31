@@ -1,0 +1,19 @@
+{
+    "modid": "flyingmachinebackport",
+    "template": "forge-1.7.10",
+    "version": "1.2.0",
+    "name": "Flying Machine Backport",
+    "description": "Backport of observers and slime/honey blocks to 1.7.10",
+    "url": "https://github.com/Pistonight/FlyingMachineBackport",
+    "updateUrl": "",
+    "authorList": [
+        "Pistonight"
+    ],
+    "credits": "",
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": [],
+    "libs": [
+        
+    ]
+}

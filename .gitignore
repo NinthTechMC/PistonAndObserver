@@ -1,11 +1,10 @@
 /build
-/run
 /.gradle
 /.settings
 /bin
 /.vscode
-/libs
-*.mp4
-/eclipse
 /.classpath
 /.project
+/build.ninja
+/.ninja_log
+/.ninja_deps
