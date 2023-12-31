@@ -1,11 +1,14 @@
 {
-    "modid": "flyingmachinebackport",
+    "modid": "flyingmachine",
+    "java": 8,
     "template": "forge-1.7.10",
     "version": "1.2.0",
-    "name": "Flying Machine Backport",
+    "coremod": "pistonmc.flyingmachine.coremod.CoremodMain",
+
+    "name": "Flying Machine",
     "description": "Backport of observers and slime/honey blocks to 1.7.10",
-    "url": "https://github.com/Pistonight/FlyingMachineBackport",
-    "updateUrl": "",
+    "url": "https://github.com/BlockPiston/FlyingMachine",
+    "updateUrl": "https://github.com/BlockPiston/FlyingMachine/releases",
     "authorList": [
         "Pistonight"
     ],
