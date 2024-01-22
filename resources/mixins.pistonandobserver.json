@@ -1,0 +1,13 @@
+{
+    "required": true,
+    "minVersion": "0.8.3-GTNH",
+    "package": "pistonmc.pistonandobserver.mixins",
+    "refmap": "mixins.pistonandobserver.refmap.json",
+    "mixins": [
+        "piston.IMixinBlockPistonAccessor",
+        "piston.MixinBlockPistonBase",
+        "piston.MixinBlockPistonExtension",
+    ],
+    "client": [],
+    "server": []
+}

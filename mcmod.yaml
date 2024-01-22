@@ -1,0 +1,65 @@
+template: gtnh-1.7.10 # Changing this will nuke the template project and setup a new one
+
+name: Piston and Observer
+modid: pistonandobserver
+description: Backport of observers and sticky blocks to 1.7.10
+# Other mcmod.info fields. All are optional
+url: https://github.com/NinthTechMC/PistonAndObserver
+authors:
+- Pistonight
+
+version: ""
+
+# The api package for the -api.jar
+# Uncomment this if you have one
+# ---
+api: pistonmc.pistonandobserver.api
+
+# Uncomment if you have a coremod. Put the fully qualified name here
+# ---
+coremod: pistonmc.pistonandobserver.coremod.CoremodMain
+
+# The access transformer files. 
+# Remove this if you don't need access transformers
+# ---
+# access-transformers:
+# - my_at.cfg
+
+mixins: pistonmc.pistonandobserver.mixins
+
+# urls or local paths of mods to download into the run/mods folder
+mods: 
+- https://github.com/GTNewHorizons/TinkersConstruct/releases/download/1.11.10-GTNH-pre/TConstruct-1.11.10-GTNH-pre-dev.jar
+- https://github.com/GTNewHorizons/waila/releases/download/1.7.0/Waila-1.7.0-dev.jar
+- https://github.com/GTNewHorizons/Mantle/releases/download/0.4.1/Mantle-0.4.1-dev.jar
+- https://github.com/GTNewHorizons/CodeChickenCore/releases/download/1.2.1/CodeChickenCore-1.2.1-dev.jar
+- https://github.com/GTNewHorizons/CodeChickenLib/releases/download/1.2.1/CodeChickenLib-1.2.1-dev.jar
+- https://github.com/GTNewHorizons/NotEnoughItems/releases/download/2.5.6-GTNH-pre/NotEnoughItems-2.5.6-GTNH-pre-dev.jar
+- https://github.com/Pistonight/TechTree/releases/download/v1.0.0/tech-tree-1.0.0-deobf.jar
+
+# urls or local paths of dev jars to download into libs
+libs:
+- https://github.com/NinthTechMC/LibPiston/releases/download/v1.0.0/LibPiston-1.0.0-deobf.jar
+
+# A mapping of properties to override in generated gradle.properties
+# ---
+gradle-overrides:
+  disableSpotless: true
+
+# Paths to copy to the target directory
+# Each path will be copied to target/{path}. If you want to customize the path in target, use [src, dst]
+# This is useful if you need to override some files in the template, for example dependencies.gradle
+# Directories will be scanned recursively.
+#
+# use "null" as the source to delete a file or directory in the target
+# deletion will happen before copying
+# ---
+copy-paths:
+- ["null", src]
+- [src, src/main/java]
+- [resources, src/main/resources]
+- dependencies.gradle
+
+# Suffixes to exclude from copying
+copy-exclude:
+- _GENERATED.java

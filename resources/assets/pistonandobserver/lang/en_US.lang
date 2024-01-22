@@ -1,0 +1,5 @@
+tile.slime_block.name=Slime Block
+tile.honey_block.name=Honey Block
+tile.modified_piston.name=Piston
+tile.modified_sticky_piston.name=Sticky Piston
+tile.observer.name=Observer

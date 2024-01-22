@@ -1,0 +1,5 @@
+tile.slime_block.name=史莱姆块
+tile.honey_block.name=蜂蜜块
+tile.modified_piston.name=活塞
+tile.modified_sticky_piston.name=粘性活塞
+tile.observer.name=侦测器
