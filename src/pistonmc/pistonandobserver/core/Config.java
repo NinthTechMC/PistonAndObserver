@@ -41,6 +41,8 @@ public class Config {
     public static int observerDuration = 2;
     public static boolean enableObserverRecipe = false;
 
+    public static boolean enableDoorTweaks = false;
+
     public static void preInit() {
         ModInfo.log.info("Loading configs - phase 1");
 		File configFile = new File("").getAbsoluteFile().toPath().resolve("config").resolve(CONFIG_NAME).toFile();
@@ -75,6 +77,10 @@ public class Config {
             enableWorldTweaks = factory.createBoolean(
                 "EnableWorldTweaks", 
                 "Setting this to false will only enable the Observer API. Most generic block updates will not update observers",
+                true).get();
+            enableDoorTweaks = factory.createBoolean(
+                "EnableDoorTweaks", 
+                "Enable mixin to vanilla doors to make them update observers correctly.",
                 true).get();
         }
     }

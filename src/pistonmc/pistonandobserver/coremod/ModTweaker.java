@@ -59,13 +59,18 @@ public class ModTweaker implements IMixinConfigPlugin {
             ModInfo.log.info("Skipping piston mixins because enablePiston = false");
         }
         if (Config.enableObserver) {
+            ModInfo.log.info("Adding observer mixins");
             if (Config.enableWorldTweaks) {
-                ModInfo.log.info("Adding observer mixins");
                 mixins.add("observer.MixinBlock");
                 mixins.add("observer.MixinWorld");
                 mixins.add("observer.MixinForgeHooks");
             } else {
-                ModInfo.log.info("Skipping observer mixins because enableWorldTweaks = false");
+                ModInfo.log.info("Skipping world mixins because enableWorldTweaks = false");
+            }
+            if (Config.enableDoorTweaks) {
+                mixins.add("observer.MixinBlockDoor");
+            } else {
+                ModInfo.log.info("Skipping door mixins because enableDoorTweaks = false");
             }
         } else {
             ModInfo.log.info("Skipping observer mixins because enableObserver = false");

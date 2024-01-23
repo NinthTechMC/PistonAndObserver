@@ -153,7 +153,6 @@ public class BlockObserver extends Block implements IBlockObserver, IBlockObserv
      * Block
      */
 
-
     @Override
     public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entity, ItemStack stack) {
         // use the same logic as piston to determine orientation
@@ -179,13 +178,33 @@ public class BlockObserver extends Block implements IBlockObserver, IBlockObserv
 		if (!isOn(meta)) {
 			return 0;
 		}
-		return getBackFacing(meta) == Facing.oppositeSide[direction] ? 15 : 0;
+		return getBackFacing(meta) == (direction^1) ? 15 : 0;
 	}
 
 	@Override
 	public boolean canProvidePower() {
 		return true;
 	}
+
+    @Override
+    public boolean canConnectRedstone(IBlockAccess world, int x, int y, int z, int side)
+    {    
+        /* input side
+         *  -1: UP
+         *   0: NORTH
+         *   1: EAST
+         *   2: SOUTH
+         *   3: WEST
+        */
+        switch (side) {
+            case 0: return getBackFacing(world.getBlockMetadata(x, y, z)) == 2;
+            case 1: return getBackFacing(world.getBlockMetadata(x, y, z)) == 5;
+            case 2: return getBackFacing(world.getBlockMetadata(x, y, z)) == 3;
+            case 3: return getBackFacing(world.getBlockMetadata(x, y, z)) == 4;
+            default: return false;
+        }
+    }
+
 
 	public void notifyChangeForRedstone(World world, int x, int y, int z) {
 		int l = getBackFacing(world.getBlockMetadata(x, y, z));
