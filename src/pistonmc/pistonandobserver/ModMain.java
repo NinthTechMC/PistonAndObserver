@@ -16,7 +16,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
     modid = ModInfo.MODID,
     version = Tags_GENERATED.VERSION, 
     dependencies = "required-after:gtnhlib@[0.2.1,);"
-        + "required-after:libpiston@[1.0.0,);"
+        + "required-after:libpiston@[1.1.0,);"
         + "after:TConstruct;"
         + "after:BiomesOPlenty"
 )

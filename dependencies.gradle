@@ -35,6 +35,6 @@
  */
 dependencies {
     api("com.github.GTNewHorizons:GTNHLib:0.2.1:dev")
-    implementation(project.files("libs/LibPiston-1.0.0-deobf.jar"))
+    implementation(project.files("libs/LibPiston-1.1.0-deobf.jar"))
     devOnlyNonPublishable(rfg.deobf(project.files("../mods/BiomesOPlenty-1.7.10-2.1.0.2308-universal.jar")))
 }

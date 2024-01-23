@@ -1,5 +1,6 @@
 package pistonmc.pistonandobserver.api;
 
+import net.minecraft.block.Block;
 import net.minecraft.world.World;
 
 /**
@@ -10,5 +11,5 @@ import net.minecraft.world.World;
  * All blocks by default, will notify observers on all 6 sides.
  */
 public interface IBlockObservable {
-    public void notifyObservers(World world, int x, int y, int z);
+    public void notifyObservers(World world, int x, int y, int z, Block oldBlock, Block newBlock);
 }

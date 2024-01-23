@@ -32,17 +32,6 @@ public class MixinBlockPistonBase extends Block {
 
     @Inject(method = "canPushBlock", at = @At("HEAD"), cancellable = true)
     private static void preCanPushBlock(Block blockToPush, World world, int x, int y, int z, boolean shouldDestroy, CallbackInfoReturnable<Boolean> cir) {
-        // TODO: observers
-        // TODO: observer
-		// if (block == ModObjects.blockObserver) {
-		// 	TileEntity tile = pos.getTileEntityInWorld(world);
-		// 	if (!(tile instanceof TileEntityObserver)) {
-		// 		// error case
-		// 		return false;
-		// 	}
-		// 	return ((TileEntityObserver) tile).getMoveDirection() == -1; // stationary observers can be moved by pistons
-		//
-		// }
         if (blockToPush instanceof BlockPistonBase) {
             int meta = world.getBlockMetadata(x, y, z);
             if (BlockPistonBase.isExtended(meta)) {

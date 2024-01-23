@@ -7,9 +7,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityPiston;
 import net.minecraft.world.World;
-import pistonmc.pistonandobserver.ModObjects;
 import pistonmc.pistonandobserver.mixins.piston.IMixinBlockPistonAccessor;
-import pistonmc.pistonandobserver.piston.TileEntityPistonAir;
 
 /**
  * Replacement impl for BlockPistonBase
@@ -47,27 +45,11 @@ public class PistonHooks {
                     }
                 }
             }
-            // TODO: observer
-            // else if (rootBlock == ModObjects.blockObserver) {
-            //             TileEntity tileentity = rootPos.getTileEntityInWorld(world);
-            //
-            //             if (tileentity instanceof TileEntityObserver) {
-            //                 TileEntityObserver observer = (TileEntityObserver) tileentity;
-            //                 if (observer.getMoveDirection() == direction) {
-            //                     observer.stopMoving();
-            //                     doNotPullBlock = true;
-            //                 }
-            //             }
-            //         }
-            //
         }
 
 
         if (doNotPullBlock) {
-            world.setBlock(pullingTargetPos.x, pullingTargetPos.y, pullingTargetPos.z,
-                ModObjects.piston_air, 0, 3);
-            world.setTileEntity(pullingTargetPos.x, pullingTargetPos.y, pullingTargetPos.z,
-                new TileEntityPistonAir());
+            pullingTargetPos.setToAir(world);
             return;
         }
 
@@ -75,10 +57,7 @@ public class PistonHooks {
             && IMixinBlockPistonAccessor.callCanPushBlock(rootBlock, world, rootPos.x, rootPos.y, rootPos.z, false) 
             && (rootBlock.getMobilityFlag() == 0 || rootBlock instanceof BlockPistonBase)) {
 
-            world.setBlock(pullingTargetPos.x, pullingTargetPos.y, pullingTargetPos.z,
-                ModObjects.piston_air, 0, 3);
-            world.setTileEntity(pullingTargetPos.x, pullingTargetPos.y, pullingTargetPos.z,
-                new TileEntityPistonAir());
+            pullingTargetPos.setToAir(world);
 
             PistonStructure structure = new PistonStructure(world, blockThis, new BlockPos(x, y, z), direction,
                 false);

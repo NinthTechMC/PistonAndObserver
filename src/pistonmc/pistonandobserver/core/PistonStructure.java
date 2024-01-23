@@ -10,9 +10,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityPiston;
 import net.minecraft.util.Facing;
 import net.minecraft.world.World;
-import pistonmc.pistonandobserver.ModObjects;
 import pistonmc.pistonandobserver.mixins.piston.IMixinBlockPistonAccessor;
-import pistonmc.pistonandobserver.piston.TileEntityPistonAir;
 
 /**
  * Used to detect the structure moved by piston
@@ -257,7 +255,6 @@ public class PistonStructure {
 	public void moveStructure() {
 
 		int updateSize = toMove.size() + toDestroy.size();
-		List<BlockPos> pistonAirs = new ArrayList<BlockPos>(updateSize);
 		List<PistonSource> notifications = new ArrayList<PistonSource>(updateSize);
 
 		// first destroy all the blocks in toDestroy
@@ -270,8 +267,7 @@ public class PistonStructure {
 			block.dropBlockAsItemWithChance(world, destroyPos.x, destroyPos.y, destroyPos.z,
 					destroyPos.getBlockMetadataInWorld(world), chance, 0);
 			// Set to air
-			pistonAirs.add(destroyPos);
-			world.setBlock(destroyPos.x, destroyPos.y, destroyPos.z, ModObjects.piston_air, 0, 3);
+            destroyPos.setToAir(world);
 			notifications.add(new PistonSource(destroyPos, block));
 		}
 
@@ -280,22 +276,12 @@ public class PistonStructure {
 			BlockPos sourcePos = toMove.get(i);
 			Block blockToMove = sourcePos.getBlockInWorld(world);
 			int metaOfBlockToMove = sourcePos.getBlockMetadataInWorld(world);
-			// set to air, no notify
-			pistonAirs.add(sourcePos);
-			world.setBlock(sourcePos.x, sourcePos.y, sourcePos.z, ModObjects.piston_air, 0, 2);
+			// set to air
+            sourcePos.setToAir(world);
 
 			BlockPos targetPos = sourcePos.offset(direction);
-			Block movingBlock;
-			TileEntity movingTileEntity;
-            // TODO: observer
-            // if (blockToMove == ModObjects.blockObserver) {
-            //     movingBlock = ModObjects.blockObserver;
-            //     movingTileEntity = new TileEntityObserver(direction);
-            // } else 
-        {
-				movingBlock = Blocks.piston_extension;
-				movingTileEntity = new TileEntityPiston(blockToMove, metaOfBlockToMove, direction, true, false);
-			}
+			Block movingBlock = Blocks.piston_extension;
+			TileEntity movingTileEntity = new TileEntityPiston(blockToMove, metaOfBlockToMove, direction, true, false);
 			world.setBlock(targetPos.x, targetPos.y, targetPos.z, movingBlock, metaOfBlockToMove, 7);
 			world.setTileEntity(targetPos.x, targetPos.y, targetPos.z, movingTileEntity);
 			notifications.add(new PistonSource(sourcePos, blockToMove));
@@ -310,13 +296,6 @@ public class PistonStructure {
 			world.setBlock(pistonTarget.x, pistonTarget.y, pistonTarget.z, Blocks.piston_extension, meta, 4);
 			world.setTileEntity(pistonTarget.x, pistonTarget.y, pistonTarget.z,
 					new TileEntityPiston(Blocks.piston_head, meta, direction, true, true));
-		}
-		// set tile entities for piston air, if it is not overriden by other moving
-		// blocks
-		for (BlockPos air : pistonAirs) {
-			if (air.getBlockInWorld(world) == ModObjects.piston_air) {
-				world.setTileEntity(air.x, air.y, air.z, new TileEntityPistonAir());
-			}
 		}
 
 		// notify change

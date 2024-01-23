@@ -30,7 +30,15 @@ public interface IBlockObserver {
 
     /**
      * Called to turn on the observer. You will only be called if your
-     * front is facing the right direction, and you are not already on
+     * front is facing the right direction, and you are not already on.
+     *
+     * This is usually also called when onNeighborBlockChange or onNeighborChange
+     * is called, so you don't need to repeat your logic there.
+     *
+     * You don't have to turn on the observer. You can do some other checks.
+     *
+     * If you want to notify other observers here, use caution: you might create an infinite updating loop!
+     * (passive updates like world.setBlock is fine)
      */
-    public void turnOnObserver(World world, int x, int y, int z, int frontSide);
+    public void onObserverUpdate(World world, int x, int y, int z, int frontSide);
 }

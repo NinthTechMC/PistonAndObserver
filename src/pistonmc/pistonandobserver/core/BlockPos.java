@@ -79,4 +79,8 @@ public class BlockPos {
 		return block.isAir(world, x, y, z);
 	}
 
+    public boolean setToAir(World world) {
+        return world.setBlockToAir(x, y, z);
+    }
+
 }
