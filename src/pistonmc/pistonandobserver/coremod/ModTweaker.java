@@ -2,17 +2,22 @@ package pistonmc.pistonandobserver.coremod;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import org.spongepowered.asm.lib.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
+import cpw.mods.fml.relauncher.IFMLLoadingPlugin;
 import pistonmc.pistonandobserver.ModInfo;
 import pistonmc.pistonandobserver.core.Config;
 
 /**
  * Mixin & Coremod config
  */
-public class ModTweaker implements IMixinConfigPlugin {
+@IFMLLoadingPlugin.TransformerExclusions({ "pistonmc.pistonandobserver.coremod" })
+@IFMLLoadingPlugin.MCVersion("1.7.10")
+@IFMLLoadingPlugin.DependsOn("libpiston.coremod.LibPistonCore")
+public class ModTweaker implements IFMLLoadingPlugin, IMixinConfigPlugin {
 
     static {
         Config.preInit();
@@ -92,6 +97,30 @@ public class ModTweaker implements IMixinConfigPlugin {
     @Override
     public void postApply(String targetClassName, ClassNode targetClass, String mixinClassName,
             IMixinInfo mixinInfo) {
+    }
+
+    @Override
+    public String[] getASMTransformerClass() {
+        return null;
+    }
+
+    @Override
+    public String getModContainerClass() {
+        return null;
+    }
+
+    @Override
+    public String getSetupClass() {
+        return null;
+    }
+
+    @Override
+    public void injectData(Map<String, Object> data) {
+    }
+
+    @Override
+    public String getAccessTransformerClass() {
+        return null;
     }
 
 }

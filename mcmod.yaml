@@ -17,7 +17,7 @@ api: pistonmc.pistonandobserver.api
 
 # Uncomment if you have a coremod. Put the fully qualified name here
 # ---
-# coremod: pistonmc.pistonandobserver.coremod.ModTweaker
+coremod: pistonmc.pistonandobserver.coremod.ModTweaker
 
 # The access transformer files. 
 # Remove this if you don't need access transformers
@@ -39,7 +39,7 @@ mods:
 
 # urls or local paths of dev jars to download into libs
 libs:
-- https://github.com/NinthTechMC/LibPiston/releases/download/v1.1.0/LibPiston-1.1.0-deobf.jar
+- https://github.com/NinthTechMC/LibPiston/releases/download/v1.1.1/LibPiston-1.1.1-deobf.jar
 
 # A mapping of properties to override in generated gradle.properties
 # ---
