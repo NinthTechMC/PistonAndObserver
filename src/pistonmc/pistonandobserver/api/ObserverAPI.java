@@ -2,9 +2,24 @@ package pistonmc.pistonandobserver.api;
 
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
+import net.minecraftforge.common.MinecraftForge;
 import pistonmc.pistonandobserver.core.Config;
 
 public class ObserverAPI {
+
+    /**
+     * Fire an {@link ObserverEvent} for the change from oldBlock to newBlock at x, y, z
+     *
+     * If the event is not cancelled, it will call {@link IBlockObservable#onObserverEvent(ObserverEvent)} on the newBlock
+     */
+    public static void fireObserverEvent(
+        World world, int x, int y, int z, Block oldBlock, Block newBlock, int oldMeta) {
+        ObserverEvent event = new ObserverEvent(world, x, y, z, oldBlock, newBlock, oldMeta);
+        boolean cancelled = MinecraftForge.EVENT_BUS.post(event);
+        if (!cancelled) {
+            ((IBlockObservable) newBlock).onObserverEvent(event);
+        }
+    }
 
     /**
      * Turn on the observer at x, y, z if it's not already on. Do nothing if the position is not an observer

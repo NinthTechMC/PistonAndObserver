@@ -5,10 +5,12 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.BlockPistonBase;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import pistonmc.pistonandobserver.ModObjects;
 import pistonmc.pistonandobserver.core.Config;
 import pistonmc.pistonandobserver.observer.BlockObserver;
+import pistonmc.pistonandobserver.observer.handler.ObserveGrassBlock;
 import pistonmc.pistonandobserver.piston.BlockSticky;
 
 public class InitCommon implements Init {
@@ -46,5 +48,10 @@ public class InitCommon implements Init {
 	@Override
 	public void postInit(FMLPostInitializationEvent event) {
         Config.postInit();
+        if (Config.enableObserver) {
+            if (Config.enableObserveSnowedGrass) {
+                MinecraftForge.EVENT_BUS.register(new ObserveGrassBlock());
+            }
+        }
 	}
 }

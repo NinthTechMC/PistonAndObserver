@@ -35,8 +35,8 @@ Some tweaks to vanilla blocks are needed to have their state changes detected by
 in later versions. Every such modification has a config that you can turn off if it causes conflicts
 with other mods.
 
-- BlockDoor: opening/closing doors notify observers looking at both door blocks
-- **TODO** Snow on grass
+- Doors opening/closing notify observers looking at both door blocks
+- Grass blocks changing between snowed and non-snowed state
 - **TODO** Note/instrument/powered state change for Note Blocks
 - **TODO** Locked state changes for powered Repeaters
 
@@ -45,13 +45,14 @@ This mod provides an API for other mods to integrate into the observer system:
 
 - `ObserverAPI` to notify observers in the world of some change
 - `IBlockObservable` for blocks to override how they notify observers
-  - for example, observers notify themselves when moved by pistons
-  - you can also make a block only notify observers in a certain direction
+  - for example, vanilla observers notify themselves when moved by pistons
+  - you can also make a block only notify observers in a certain direction, for example
 - `IBlockObserver` for blocks to become an observer
+- Subscribe to `ObserverEvent` to be notified whenever any block is changed
   
 ## Contribution
 Contributions are welcome. Feel free to open issues/PRs if there is a bug or observer feature missing.
 
 ## Dev Setup
-Using [mcmod](https://github.com/Pistonight/mcmod) to generate a project with the [GTNH Example Mod](https://github.com/GTNewHorizons/ExampleMod1.7.10).
+Using [mcmod](https://github.com/NinthTechMC/mcmod) to generate a project with the [GTNH Example Mod](https://github.com/GTNewHorizons/ExampleMod1.7.10).
 You can either use mcmod to interact with the generated project or develop in the generated project directly

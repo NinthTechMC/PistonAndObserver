@@ -42,6 +42,7 @@ public class Config {
     public static boolean enableObserverRecipe = false;
 
     public static boolean enableDoorTweaks = false;
+    public static boolean enableObserveSnowedGrass = false;
 
     public static void preInit() {
         ModInfo.log.info("Loading configs - phase 1");
@@ -137,6 +138,10 @@ public class Config {
             enableObserverRecipe = factory.createBoolean(
                 "EnableObserverRecipe",
                 "Should the vanilla observer recipe be added",
+                true).get();
+            enableObserveSnowedGrass = factory.createBoolean(
+                "EnableObserveSnowedGrass",
+                "Should grass blocks changing between snowed and non-snowed cause observer update.",
                 true).get();
         }
     }

@@ -20,6 +20,7 @@ import pistonmc.pistonandobserver.ModInfo;
 import pistonmc.pistonandobserver.api.IBlockObservable;
 import pistonmc.pistonandobserver.api.IBlockObserver;
 import pistonmc.pistonandobserver.api.ObserverAPI;
+import pistonmc.pistonandobserver.api.ObserverEvent;
 import pistonmc.pistonandobserver.core.Config;
 
 /**
@@ -221,11 +222,11 @@ public class BlockObserver extends Block implements IBlockObserver, IBlockObserv
 	}
 
     @Override
-    public void notifyObservers(World world, int x, int y, int z, Block oldBlock, Block newBlock) {
-        if (oldBlock == Blocks.piston_extension) {
+    public void onObserverEvent(ObserverEvent event) {
+        if (event.oldBlock == Blocks.piston_extension) {
             // if the observer is moved by a piston, notify itself
-            ObserverAPI.triggerObserverAt(world, x, y, z);
+            ObserverAPI.triggerObserverAt(event.world, event.x, event.y, event.z);
         }
-        ObserverAPI.notifyObserversAround(world, x, y, z);
+        ObserverAPI.notifyObserversAround(event.world, event.x, event.y, event.z);
     }
 }

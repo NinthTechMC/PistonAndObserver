@@ -10,12 +10,17 @@ import net.minecraft.world.World;
 import pistonmc.pistonandobserver.api.IBlockObservable;
 import pistonmc.pistonandobserver.api.IBlockObserver;
 import pistonmc.pistonandobserver.api.ObserverAPI;
+import pistonmc.pistonandobserver.api.ObserverEvent;
 
 @Mixin(BlockDoor.class)
 public class MixinBlockDoor implements IBlockObservable {
 
     @Override
-    public void notifyObservers(World world, int x, int y, int z, Block oldBlock, Block newBlock) {
+    public void onObserverEvent(ObserverEvent event) {
+        World world = event.world;
+        int x = event.x;
+        int y = event.y;
+        int z = event.z;
         boolean isUpper = (world.getBlockMetadata(x, y, z) & 8) != 0;
         if (isUpper) {
             // upper door will also notify observers looking at lower door
