@@ -3,9 +3,9 @@
 This mod backports sticky blocks (slime/honey) and observers to 1.7.10.
 
 ## Dependencies
-- [unimixin] (https://github.com/LegacyModdingMC/UniMixins/)
-- [GTNH Lib] (https://github.com/GTNewHorizons/GTNHLib)
-- [LibPiston] (https://github.com/NinthTechMC/LibPiston)
+- Unimixin (https://github.com/LegacyModdingMC/UniMixins/)
+- GTNH Lib (https://github.com/GTNewHorizons/GTNHLib)
+- LibPiston (https://github.com/NinthTechMC/LibPiston)
 
 ## Piston Features
 Piston behavior is modified so that blocks that are stuck to sticky blocks will be moved
