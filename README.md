@@ -37,7 +37,7 @@ with other mods.
 
 - Doors opening/closing notify observers looking at both door blocks
 - Grass blocks changing between snowed and non-snowed state
-- **TODO** Note/instrument/powered state change for Note Blocks
+- Note blocks changing pitch, instrument, or powered state
 - **TODO** Locked state changes for powered Repeaters
 
 ## Observer API
@@ -48,7 +48,9 @@ This mod provides an API for other mods to integrate into the observer system:
   - for example, vanilla observers notify themselves when moved by pistons
   - you can also make a block only notify observers in a certain direction, for example
 - `IBlockObserver` for blocks to become an observer
-- Subscribe to `ObserverEvent` to be notified whenever any block is changed
+- Subscribe to `ObserverEvent` to be notified whenever any block is changed.
+  This allows observer updates for interactions between blocks that are not part of the block state,
+  like note block instruments and grass block snowyness
   
 ## Contribution
 Contributions are welcome. Feel free to open issues/PRs if there is a bug or observer feature missing.

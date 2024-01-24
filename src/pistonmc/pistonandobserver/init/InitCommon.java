@@ -11,6 +11,7 @@ import pistonmc.pistonandobserver.ModObjects;
 import pistonmc.pistonandobserver.core.Config;
 import pistonmc.pistonandobserver.observer.BlockObserver;
 import pistonmc.pistonandobserver.observer.handler.ObserveGrassBlock;
+import pistonmc.pistonandobserver.observer.handler.ObserveNoteBlock;
 import pistonmc.pistonandobserver.piston.BlockSticky;
 
 public class InitCommon implements Init {
@@ -51,6 +52,9 @@ public class InitCommon implements Init {
         if (Config.enableObserver) {
             if (Config.enableObserveSnowedGrass) {
                 MinecraftForge.EVENT_BUS.register(new ObserveGrassBlock());
+            }
+            if (Config.enableNoteBlockTweaks) {
+                MinecraftForge.EVENT_BUS.register(new ObserveNoteBlock());
             }
         }
 	}

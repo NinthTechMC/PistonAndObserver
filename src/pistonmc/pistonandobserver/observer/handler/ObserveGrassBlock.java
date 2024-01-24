@@ -25,7 +25,8 @@ public class ObserveGrassBlock {
         if (isBlockSnow(event.newBlock) == isBlockSnow(event.oldBlock)) {
             return;
         }
-        ObserverAPI.fireObserverEvent(world, x, y - 1, z, blockBelow, blockBelow, world.getBlockMetadata(x,y-1,z));
+        int meta = world.getBlockMetadata(x, y - 1, z);
+        ObserverAPI.fireObserverEvent(world, x, y - 1, z, blockBelow, blockBelow, meta);
     }
 
     private boolean isBlockSnow(Block block) {

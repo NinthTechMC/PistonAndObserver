@@ -43,6 +43,7 @@ public class Config {
 
     public static boolean enableDoorTweaks = false;
     public static boolean enableObserveSnowedGrass = false;
+    public static boolean enableNoteBlockTweaks = false;
 
     public static void preInit() {
         ModInfo.log.info("Loading configs - phase 1");
@@ -82,6 +83,10 @@ public class Config {
             enableDoorTweaks = factory.createBoolean(
                 "EnableDoorTweaks", 
                 "Enable mixin to vanilla doors to make them update observers correctly.",
+                true).get();
+            enableNoteBlockTweaks = factory.createBoolean(
+                "EnableNoteBlockTweaks", 
+                "Enable mixin to vanilla note blocks to update observers when their pitch, instrument, or redstone power changes.",
                 true).get();
         }
     }

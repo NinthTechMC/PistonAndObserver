@@ -72,6 +72,12 @@ public class ModTweaker implements IMixinConfigPlugin {
             } else {
                 ModInfo.log.info("Skipping door mixins because enableDoorTweaks = false");
             }
+            if (Config.enableNoteBlockTweaks) {
+                mixins.add("observer.MixinBlockNote");
+                mixins.add("observer.MixinTileEntityNote");
+            } else {
+                ModInfo.log.info("Skipping note block mixins because enableNoteBlockTweaks = false");
+            }
         } else {
             ModInfo.log.info("Skipping observer mixins because enableObserver = false");
         }
