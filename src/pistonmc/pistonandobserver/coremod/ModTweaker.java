@@ -2,20 +2,16 @@ package pistonmc.pistonandobserver.coremod;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 import org.spongepowered.asm.lib.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
-import cpw.mods.fml.relauncher.IFMLLoadingPlugin;
 import pistonmc.pistonandobserver.ModInfo;
 import pistonmc.pistonandobserver.core.Config;
 
 /**
  * Mixin & Coremod config
  */
-// @IFMLLoadingPlugin.TransformerExclusions({ "pistonmc."+ModInfo.MODID+".coremod" })
-// @IFMLLoadingPlugin.MCVersion("1.7.10")
 public class ModTweaker implements IMixinConfigPlugin {
 
     static {
@@ -97,31 +93,5 @@ public class ModTweaker implements IMixinConfigPlugin {
     public void postApply(String targetClassName, ClassNode targetClass, String mixinClassName,
             IMixinInfo mixinInfo) {
     }
-
-    // @Override
-    // public String[] getASMTransformerClass() {
-    //     return new String[] {
-    //         // "pistonmc.pistonandobserver.coremod.TransformerWorld"
-    //     };
-    // }
-    //
-    // @Override
-    // public String getModContainerClass() {
-    //     return null;
-    // }
-    //
-    // @Override
-    // public String getSetupClass() {
-    //     return null;
-    // }
-    //
-    // @Override
-    // public void injectData(Map<String, Object> data) {
-    // }
-    //
-    // @Override
-    // public String getAccessTransformerClass() {
-    //     return null;
-    // }
 
 }

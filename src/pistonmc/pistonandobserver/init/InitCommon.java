@@ -12,6 +12,7 @@ import pistonmc.pistonandobserver.core.Config;
 import pistonmc.pistonandobserver.observer.BlockObserver;
 import pistonmc.pistonandobserver.observer.handler.ObserveGrassBlock;
 import pistonmc.pistonandobserver.observer.handler.ObserveNoteBlock;
+import pistonmc.pistonandobserver.observer.handler.ObserveRepeaterBlock;
 import pistonmc.pistonandobserver.piston.BlockSticky;
 
 public class InitCommon implements Init {
@@ -55,6 +56,9 @@ public class InitCommon implements Init {
             }
             if (Config.enableNoteBlockTweaks) {
                 MinecraftForge.EVENT_BUS.register(new ObserveNoteBlock());
+            }
+            if (Config.enableObserveRepeaterLocks) {
+                MinecraftForge.EVENT_BUS.register(new ObserveRepeaterBlock());
             }
         }
 	}

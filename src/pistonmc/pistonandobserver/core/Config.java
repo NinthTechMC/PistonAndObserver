@@ -44,6 +44,7 @@ public class Config {
     public static boolean enableDoorTweaks = false;
     public static boolean enableObserveSnowedGrass = false;
     public static boolean enableNoteBlockTweaks = false;
+    public static boolean enableObserveRepeaterLocks = false;
 
     public static void preInit() {
         ModInfo.log.info("Loading configs - phase 1");
@@ -147,6 +148,10 @@ public class Config {
             enableObserveSnowedGrass = factory.createBoolean(
                 "EnableObserveSnowedGrass",
                 "Should grass blocks changing between snowed and non-snowed cause observer update.",
+                true).get();
+            enableObserveRepeaterLocks = factory.createBoolean(
+                "EnableObserveRepeaterLocks",
+                "Should repeater cause observer updates when they change between locked/unlocked states",
                 true).get();
         }
     }

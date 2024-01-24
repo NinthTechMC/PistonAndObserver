@@ -35,10 +35,10 @@ Some tweaks to vanilla blocks are needed to have their state changes detected by
 in later versions. Every such modification has a config that you can turn off if it causes conflicts
 with other mods.
 
-- Doors opening/closing notify observers looking at both door blocks
-- Grass blocks changing between snowed and non-snowed state
-- Note blocks changing pitch, instrument, or powered state
-- **TODO** Locked state changes for powered Repeaters
+- Doors opening/closing notify observers looking at both door blocks.
+- Grass blocks changing between snowed and non-snowed states.
+- Note blocks changing pitch, instrument, or powered state.
+- Redstone Repeaters changing between locked and unlocked states.
 
 ## Observer API
 This mod provides an API for other mods to integrate into the observer system:
